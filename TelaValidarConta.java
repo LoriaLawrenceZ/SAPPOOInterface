@@ -28,6 +28,8 @@ public class TelaValidarConta extends Application {
                 // Fechar a janela atual após validar o acesso à conta
                 primaryStage.close();
 
+                gerenciar.getConta();
+
                 TelaConta telaConta = new TelaConta();
                 telaConta.start(new Stage());
             } else {

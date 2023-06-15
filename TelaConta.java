@@ -7,6 +7,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TelaConta extends Application{
+    private Conta conta;
+    
     @Override
     public void start(Stage primaryStage){
         Gerenciamento gerenciar = new Gerenciamento();
@@ -24,7 +26,7 @@ public class TelaConta extends Application{
         
         //Ação btnSaldo
         btnSaldo.setOnAction(event -> {
-            labelSaldo.setText(gerenciar.get);
+            labelSaldo.setText(gerenciar.ExibirSaldo(conta));
         });
         //Ação btnSaque
         btnSaldo.setOnAction(event -> {

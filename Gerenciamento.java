@@ -20,23 +20,23 @@ public class Gerenciamento {
         PessoaJuridica contaOriginal = new PessoaJuridica("0", "Original", "123.456.789-12", 1000);
         contas.add(contaOriginal);
     }
-
+    
     public void CriarConta() {
         System.out.println(
-                "------------------------------------------------\n[A] - Pessoa Física | [B] - Pessoa Jurídica");
+            "------------------------------------------------\n[A] - Pessoa Física | [B] - Pessoa Jurídica");
         escolha = sc.next().toLowerCase();
-
+        
         while (!escolha.equalsIgnoreCase("A") & !escolha.equalsIgnoreCase("B")) {
             System.out.println("\nInsira um valor válido\n[A] - Pessoa Física | [B] - Pessoa Jurídica");
             escolha = sc.next().toLowerCase();
         }
-
+        
         if (escolha.equalsIgnoreCase("A")) {
             numeroConta = String.valueOf(Integer.parseInt(contas.get(contas.size() - 1).getNumeroConta()) + 1);
 
             System.out.println("------------------------------\nNome:");
             nome = sc.next();
-
+            
             System.out.println("------------------------------\nCPF:         [xxxxxxxxxxx]");
             cpfCnpj = sc.next();
             while (cpfCnpj.length() != 11) {
@@ -48,20 +48,20 @@ public class Gerenciamento {
                 if (cpfCnpj.equals(conta.cpfCnpj)) {
                     System.out.println(
                             "-----------------------------------------------------------------\nJá existe uma conta cadastrada nesse CPF\nInsira um novo CPF");
-                    cpfCnpj = sc.next();
+                            cpfCnpj = sc.next();
 
                     break;
                 }
             }
 
             PessoaFisica conta = new PessoaFisica(numeroConta, nome, cpfCnpj, 100);
-
+            
             contas.add(conta);
-
+            
             System.out.println("Conta criada!\nNúmero da conta: " + conta.getNumeroConta());
         } else {
             numeroConta = String.valueOf(Integer.parseInt(contas.get(contas.size() - 1).getNumeroConta()) + 1);
-
+            
             System.out.println("------------------------------\nNome:");
             nome = sc.next();
 
@@ -75,21 +75,21 @@ public class Gerenciamento {
             for (Conta conta : contas) {
                 if (cpfCnpj.equals(conta.cpfCnpj)) {
                     System.out.println(
-                            "-----------------------------------------------------------------\nJá existe uma conta cadastrada nesse CNPJ\nInsira um novo CNPJ");
-                    cpfCnpj = sc.next();
+                        "-----------------------------------------------------------------\nJá existe uma conta cadastrada nesse CNPJ\nInsira um novo CNPJ");
+                        cpfCnpj = sc.next();
 
-                    break;
+                        break;
                 }
             }
-
+            
             PessoaJuridica conta = new PessoaJuridica(numeroConta, nome, cpfCnpj, 100);
 
             contas.add(conta);
-
+            
             System.out.println("Conta criada!\nNúmero da conta: " + conta.getNumeroConta());
         }
     }
-
+    
     public boolean Validacao(String login) {
         for (Conta conta : contas) {
             if (login.equals(conta.getCpfCnpj()) | login.equals(conta.getNumeroConta())) {
@@ -98,6 +98,17 @@ public class Gerenciamento {
         }
         return false;
     }
+    
+        //-----===PEGAR CONTA===-----//
+        public Conta getConta(String login){
+            for (Conta conta : contas) {
+                if (login.equals(conta.getCpfCnpj()) | login.equals(conta.getNumeroConta())) {
+                    return conta;
+                }
+            }
+            return conta;
+        }
+        //-----===PEGAR CONTA===-----//
 
     public void AcessarConta(Conta conta) {
         do {
@@ -130,10 +141,8 @@ public class Gerenciamento {
         } while (!escolha.equalsIgnoreCase("S"));
     }
 
-    public void ExibirSaldo(Conta conta) {
-        System.out
-                .println("\n------------------------------------------------------------------------------\nSaldo: R$ "
-                        + conta.getSaldo());
+    public String ExibirSaldo(Conta conta) {
+        return String.valueOf(conta.getSaldo());
     }
 
     public void FazerSaque(Conta conta) {
