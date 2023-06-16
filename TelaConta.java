@@ -38,18 +38,27 @@ public class TelaConta extends Application{
         btnSaque.setOnAction(event -> {
             // Fechar a janela atual após validar o acesso à conta
             primaryStage.close();
+
+            TelaSaque telaSaque = new TelaSaque(conta);
+            telaSaque.start(new Stage());
         });
 
         //Ação btnDeposito
         btnDeposito.setOnAction(event -> {
             // Fechar a janela atual após validar o acesso à conta
             primaryStage.close();
+
+            TelaDeposito telaDeposito = new TelaDeposito(conta);
+            telaDeposito.start(new Stage());
         });
 
         //Ação btnEmprestimo
         btnEmprestimo.setOnAction(event -> {
             // Fechar a janela atual após validar o acesso à conta
             primaryStage.close();
+
+            TelaEmprestimo telaEmprestimo = new TelaEmprestimo(conta);
+            telaEmprestimo.start(new Stage());
         });
 
         // Ação do botão Voltar
