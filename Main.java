@@ -11,6 +11,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        primaryStage.setTitle("Banco SAPPOO");
+        
         // Criação dos elementos da tela inicial
         Button btnAcessarConta = new Button("Acessar Conta");
         Button btnCriarConta = new Button("Criar Conta");

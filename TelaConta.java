@@ -15,6 +15,8 @@ public class TelaConta extends Application{
     
     @Override
     public void start(Stage primaryStage){
+        primaryStage.setTitle("Banco SAPPOO - "+ conta.getNome());
+
         // Criação dos elementos da tela de acesso à conta
         Button btnSaldo = new Button("INFORMAÇÕES");
         Button btnSaque = new Button("SAQUE");

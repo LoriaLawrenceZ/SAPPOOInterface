@@ -15,6 +15,8 @@ public class TelaDeposito extends Application{
 
     @Override
     public void start(Stage primaryStage){
+        primaryStage.setTitle("Banco SAPPOO - "+ conta.getNome() +" - DEPÓSITO");
+
         // Criação dos elementos da tela de acesso à conta
         Label lblInfo = new Label("Nome: "+ conta.getNome() +"\nCPF|CNPJ: "+ conta.getCpfCnpj() +"\nNúmero da conta: "+ conta.getNumeroConta() +"\nSaldo: "+ conta.getSaldo());
         Button btnSair = new Button("Voltar");
