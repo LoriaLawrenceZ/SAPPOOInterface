@@ -30,8 +30,8 @@ public class TelaConta extends Application{
             // Fechar a janela atual após validar o acesso à conta
             primaryStage.close();
 
-            TelaSaldo telaSaldo = new TelaSaldo(conta);
-            telaSaldo.start(new Stage());
+            TelaInfo telaInfo = new TelaInfo(conta);
+            telaInfo.start(new Stage());
         });
 
         //Ação btnSaque

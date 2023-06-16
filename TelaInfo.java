@@ -6,10 +6,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class TelaSaldo extends Application{
+public class TelaInfo extends Application{
     private Conta conta;
 
-    public TelaSaldo(Conta conta){
+    public TelaInfo(Conta conta){
         this.conta = conta;
     }
 
