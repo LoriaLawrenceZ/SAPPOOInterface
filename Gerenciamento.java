@@ -6,6 +6,7 @@ public class Gerenciamento {
     Scanner sc = new Scanner(System.in, "latin1");
 
     private List<Conta> contas;
+    private Conta conta;
     private String escolha = "";
     private String numeroConta = "";
     private String nome = "";
@@ -101,9 +102,9 @@ public class Gerenciamento {
     
         //-----===PEGAR CONTA===-----//
         public Conta getConta(String login){
-            for (Conta conta : contas) {
-                if (login.equals(conta.getCpfCnpj()) | login.equals(conta.getNumeroConta())) {
-                    return conta;
+            for (Conta cont : contas) {
+                if (login.equals(cont.getCpfCnpj()) | login.equals(cont.getNumeroConta())) {
+                    conta = cont;
                 }
             }
             return conta;
@@ -214,11 +215,4 @@ public class Gerenciamento {
             return sb.toString();
         }
     }
-    /*
-     * void exibirSaldo();
-     * void realizarSaque(double valor);
-     * void realizarDeposito(double valor);
-     * void solicitarEmprestimo(double valor);
-     * void sairDaConta();
-     */
 }

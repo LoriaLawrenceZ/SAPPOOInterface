@@ -28,9 +28,7 @@ public class TelaValidarConta extends Application {
                 // Fechar a janela atual após validar o acesso à conta
                 primaryStage.close();
 
-                gerenciar.getConta(login);
-
-                TelaConta telaConta = new TelaConta();
+                TelaConta telaConta = new TelaConta(gerenciar.getConta(login));
                 telaConta.start(new Stage());
             } else {
                 labelErro.setText("Conta não encontrada");
@@ -45,7 +43,7 @@ public class TelaValidarConta extends Application {
                 // Fechar a janela atual após validar o acesso à conta
                 primaryStage.close();
 
-                TelaConta telaConta = new TelaConta();
+                TelaConta telaConta = new TelaConta(gerenciar.getConta(login));
                 telaConta.start(new Stage());
             } else {
                 labelErro.setText("Conta não encontrada");

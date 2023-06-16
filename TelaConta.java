@@ -8,14 +8,15 @@ import javafx.stage.Stage;
 
 public class TelaConta extends Application{
     private Conta conta;
+
+    public TelaConta(Conta conta){
+        this.conta = conta;
+    }
     
     @Override
     public void start(Stage primaryStage){
-        Gerenciamento gerenciar = new Gerenciamento();
-
         // Criação dos elementos da tela de acesso à conta
-        Button btnSaldo = new Button("SALDO");
-        Label labelSaldo = new Label();
+        Button btnSaldo = new Button("INFORMAÇÕES");
         Button btnSaque = new Button("SAQUE");
         Button btnDeposito = new Button("DEPÓSITO");
         Button btnEmprestimo = new Button("EMPRÉSTIMO");
@@ -26,20 +27,31 @@ public class TelaConta extends Application{
         
         //Ação btnSaldo
         btnSaldo.setOnAction(event -> {
-            labelSaldo.setText(gerenciar.ExibirSaldo(conta));
+            // Fechar a janela atual após validar o acesso à conta
+            primaryStage.close();
+
+            TelaSaldo telaSaldo = new TelaSaldo(conta);
+            telaSaldo.start(new Stage());
         });
+
         //Ação btnSaque
-        btnSaldo.setOnAction(event -> {
-            
+        btnSaque.setOnAction(event -> {
+            // Fechar a janela atual após validar o acesso à conta
+            primaryStage.close();
         });
+
         //Ação btnDeposito
-        btnSaldo.setOnAction(event -> {
-            
+        btnDeposito.setOnAction(event -> {
+            // Fechar a janela atual após validar o acesso à conta
+            primaryStage.close();
         });
+
         //Ação btnEmprestimo
-        btnSaldo.setOnAction(event -> {
-            
+        btnEmprestimo.setOnAction(event -> {
+            // Fechar a janela atual após validar o acesso à conta
+            primaryStage.close();
         });
+
         // Ação do botão Voltar
         btnSair.setOnAction(event -> {
             // Fecha a janela atual
